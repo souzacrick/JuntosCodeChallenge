@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "Dv3SXGqQ3q5O7DRtv/t/HIww+OazIodRmAKKeRb4LYRpndqL1avJaGJIVrSN7XJKlvJvmIvlpP4eHIfQ7iBFgg==",
+  "success": true,
+  "projectFilePath": "D:\\Projetos\\JuntosCodeChallenge\\JuntosCodeChallenge\\JuntosCodeChallenge.API\\JuntosCodeChallenge.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rickc\\.nuget\\packages\\csvhelper\\15.0.6\\csvhelper.15.0.6.nupkg.sha512",
+    "C:\\Users\\rickc\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\rickc\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.8\\microsoft.extensions.caching.abstractions.3.1.8.nupkg.sha512",
+    "C:\\Users\\rickc\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
+    "C:\\Users\\rickc\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
