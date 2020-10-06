@@ -7,6 +7,7 @@ Foi desenvolvido somente o backend/API.
 Ao executar o projeto abrirá uma rota que traz (em JSON) todos os clientes carregados, foi feito desta forma para testar o upload de clientes no startup.
 
 A api para obter os clientes foi desenvolvida com 4 opções de filtros: região, tipo, genero e email, abaixo exemplo de chamada JSON:
+(POST)
 {
     "type":2,
     "pageNumber": 0,
