@@ -11,19 +11,18 @@ A api para obter os clientes foi desenvolvida com 4 opções de filtros: região
 (POST) para a rota -> api/customer/Filter
 
 Passando no body ->
-
 {
     "type":2,
     "pageNumber": 0,
     "pageSize": 20
 }
-
+ | 
 {
     "region":2,
     "pageNumber": 0,
     "pageSize": 20
 }
-
+ | 
 {
     "region":4,
     "gender": "m",
