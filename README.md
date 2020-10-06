@@ -8,7 +8,8 @@ Ao executar o projeto abrirá uma rota que traz (em JSON) todos os clientes carr
 
 A api para obter os clientes foi desenvolvida com 4 opções de filtros: região (region - inteiro), tipo (type - inteiro), genero (gender - text) e email, exemplos de chamada JSON:
 
-(POST)
+(POST) para a rota -> api/customer/Filter
+Passando no body ->
 {
     "type":2,
     "pageNumber": 0,
