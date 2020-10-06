@@ -35,10 +35,10 @@ namespace JuntosCodeChallenge.Infrastructure.Repository
                 customers = customers.Where(x => x.Location.RegionEnum == (CustomerRegionEnum)filters.Region.Value).ToList();
 
             if (!string.IsNullOrEmpty(filters.Gender))
-                customers = customers.Where(x => x.Gender.Equals(filters.Gender)).ToList();
+                customers = customers.Where(x => x.Gender.ToLower().Equals(filters.Gender.ToLower())).ToList();
 
             if (!string.IsNullOrEmpty(filters.Email))
-                customers = customers.Where(x => x.Email.Contains(filters.Email)).ToList();
+                customers = customers.Where(x => x.Email.ToLower().Contains(filters.Email.ToLower())).ToList();
 
             if (filters.PageSize.HasValue)
                 pageSize = filters.PageSize.Value;
