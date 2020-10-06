@@ -382,6 +382,68 @@ namespace JuntosCodeChallenge.Test
             Assert.Equal(20, responseCustomer.users.Count);
         }
         [Fact]
+        public void GetLaboriousAndNorthCustomers()
+        {
+            CustomerResponseTest responseCustomer = new CustomerResponseTest();
+            HttpResponseMessage responseMessage = _client.PostAsync("/api/customer/Filter", new StringContent(JsonSerializer.Serialize(new FilterCustomerDTO { Type = 3, Region = 1, PageSize = 25, PageNumber = 0 }), Encoding.UTF8, "application/json")).Result;
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                string response = responseMessage.Content.ReadAsStringAsync().Result;
+                responseCustomer = JsonSerializer.Deserialize<CustomerResponseTest>(response, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            }
+
+            Assert.Equal(HttpStatusCode.OK, responseMessage.StatusCode);
+            Assert.NotEqual(HttpStatusCode.BadRequest, responseMessage.StatusCode);
+            Assert.Equal(CustomerTypeEnum.Laborious.ToString(), responseCustomer.users.FirstOrDefault().type);
+            Assert.NotEqual(CustomerTypeEnum.Special.ToString(), responseCustomer.users.LastOrDefault().type);
+            Assert.Equal(CustomerRegionEnum.Norte.ToString(), responseCustomer.users.FirstOrDefault().location.region);
+            Assert.NotEqual(CustomerRegionEnum.Sul.ToString(), responseCustomer.users.LastOrDefault().location.region);
+        }
+        [Fact]
+        public void FilterCustomersByEmail()
+        {
+            CustomerResponseTest responseCustomer = new CustomerResponseTest();
+            HttpResponseMessage responseMessage = _client.PostAsync("/api/customer/Filter", new StringContent(JsonSerializer.Serialize(new FilterCustomerDTO { Email = "aes@exa", PageSize = 12, PageNumber = 1 }), Encoding.UTF8, "application/json")).Result;
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                string response = responseMessage.Content.ReadAsStringAsync().Result;
+                responseCustomer = JsonSerializer.Deserialize<CustomerResponseTest>(response, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            }
+
+            Assert.Equal(HttpStatusCode.OK, responseMessage.StatusCode);
+            Assert.NotEqual(HttpStatusCode.BadRequest, responseMessage.StatusCode);
+            Assert.True(responseCustomer.users.Exists(x => x.email.Contains("aes@exa")));
+        }
+        [Fact]
+        public void FilterCustomersByGender()
+        {
+            CustomerResponseTest responseCustomer = new CustomerResponseTest();
+            HttpResponseMessage responseMessage = _client.PostAsync("/api/customer/Filter", new StringContent(JsonSerializer.Serialize(new FilterCustomerDTO { Gender = "F", PageSize = 20, PageNumber = 0 }), Encoding.UTF8, "application/json")).Result;
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                string response = responseMessage.Content.ReadAsStringAsync().Result;
+                responseCustomer = JsonSerializer.Deserialize<CustomerResponseTest>(response, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            }
+
+            Assert.Equal(HttpStatusCode.OK, responseMessage.StatusCode);
+            Assert.NotEqual(HttpStatusCode.BadRequest, responseMessage.StatusCode);
+            Assert.Equal("F", responseCustomer.users.FirstOrDefault().gender);
+            Assert.Equal("F", responseCustomer.users.LastOrDefault().gender);
+            Assert.NotEqual("M", responseCustomer.users.LastOrDefault().type);
+        }
+        [Fact]
         public void BadRequestCustomers()
         {
             CustomerResponseTest responseCustomer = null;

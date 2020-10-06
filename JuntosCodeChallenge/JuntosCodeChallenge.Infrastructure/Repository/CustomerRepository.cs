@@ -38,7 +38,7 @@ namespace JuntosCodeChallenge.Infrastructure.Repository
                 customers = customers.Where(x => x.Gender.Equals(filters.Gender)).ToList();
 
             if (!string.IsNullOrEmpty(filters.Email))
-                customers = customers.Where(x => x.Email.Equals(filters.Email)).ToList();
+                customers = customers.Where(x => x.Email.Contains(filters.Email)).ToList();
 
             if (filters.PageSize.HasValue)
                 pageSize = filters.PageSize.Value;

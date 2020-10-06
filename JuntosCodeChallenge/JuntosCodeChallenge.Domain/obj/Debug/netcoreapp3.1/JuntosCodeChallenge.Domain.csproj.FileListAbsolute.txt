@@ -1,9 +1,8 @@
-D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\obj\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.csprojAssemblyReference.cache
-D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\obj\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.AssemblyInfoInputs.cache
-D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\obj\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.AssemblyInfo.cs
 D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\bin\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.deps.json
 D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\bin\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.dll
 D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\bin\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.pdb
+D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\obj\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.AssemblyInfoInputs.cache
+D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\obj\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.AssemblyInfo.cs
+D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\obj\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.csproj.CoreCompileInputs.cache
 D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\obj\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.dll
 D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\obj\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.pdb
-D:\Projetos\JuntosCodeChallenge\JuntosCodeChallenge\JuntosCodeChallenge.Domain\obj\Debug\netcoreapp3.1\JuntosCodeChallenge.Domain.csproj.CoreCompileInputs.cache
