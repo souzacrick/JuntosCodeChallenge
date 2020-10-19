@@ -22,6 +22,7 @@ https://www.postman.com/downloads/ -- link para download
 ### Executando o projeto ###
 
 É possível obter o código/projeto de duas formas:
+
 1 - via linha de comando, deve-se instalar o cli do git (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) e executar o comando:
 git clone https://github.com/souzacrick/JuntosCodeChallenge.git
 
