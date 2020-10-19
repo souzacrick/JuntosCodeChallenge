@@ -1,4 +1,5 @@
 ﻿using JuntosCodeChallenge.Domain.Customer;
+using JuntosCodeChallenge.Domain.Customer.CustomException;
 using JuntosCodeChallenge.Domain.Customer.DTO;
 using JuntosCodeChallenge.Domain.Customer.Enum;
 using JuntosCodeChallenge.Domain.Customer.Interfaces;
@@ -11,6 +12,7 @@ namespace JuntosCodeChallenge.Infrastructure.Repository
     public class CustomerRepository : ICustomerRepository
     {
         private readonly IMemoryCache _memoryCache;
+        private const string errorTotalPages = "O total de páginas é inferior a página solicitada.";
 
         public CustomerRepository(IMemoryCache memoryCache)
         {
@@ -49,7 +51,7 @@ namespace JuntosCodeChallenge.Infrastructure.Repository
             totalPages = customers.Count / pageSize;
 
             if (totalPages < pageNumber)
-                return null;
+                throw new CustomerException(errorTotalPages);
 
             return new ResponseCustomerDTO { users = customers.Skip(pageNumber * pageSize).Take(pageSize).ToList(), pageNumber = pageNumber, pageSize = pageSize, totalCount = customers.Count() };
         }

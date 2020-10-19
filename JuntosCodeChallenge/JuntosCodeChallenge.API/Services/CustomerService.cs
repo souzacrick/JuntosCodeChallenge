@@ -2,6 +2,7 @@
 using JuntosCodeChallenge.Domain.Customer.Enum;
 using JuntosCodeChallenge.Domain.Customer.Interfaces;
 using JuntosCodeChallenge.Domain.Customer.VO;
+using JuntosCodeChallenge.Infrastructure.CrossCutting;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -23,11 +24,12 @@ namespace JuntosCodeChallenge.API.Services
         public void Initialize()
         {
             List<Customer> customers;
+            LogHelper log = new LogHelper();
             Customer customer = new Customer();
             ICustomerProcessing customerProcessing = null;
 
             //Monta o objeto
-            var customerTypeCoordinates = 
+            var customerTypeCoordinates =
                 new List<CustomerTypeCoordinates>
                 {
                     new CustomerTypeCoordinates {
@@ -46,6 +48,7 @@ namespace JuntosCodeChallenge.API.Services
                 };
 
             //Iniciliza as regiões por estado
+            log.Information("Inicializando as regiões.");
             customer.InitializeRegions();
 
             //Armazena os clientes no cache
@@ -56,9 +59,11 @@ namespace JuntosCodeChallenge.API.Services
                 switch ((CustomerOriginEnum)item)
                 {
                     case CustomerOriginEnum.CSV:
+                        log.Information("Carregando os clientes via CSV.");
                         customerProcessing = new CustomerCSVProcessing();
                         break;
                     case CustomerOriginEnum.JSON:
+                        log.Information("Carregando os clientes via JSON.");
                         customerProcessing = new CustomerJSONProcessing();
                         break;
                     default:
@@ -69,6 +74,7 @@ namespace JuntosCodeChallenge.API.Services
 
                 if (customerDTO != null)
                 {
+                    log.Information("Adicionando os clientes no cache.");
                     if (!_memoryCache.TryGetValue("Customers", out customers))
                         customers = new List<Customer>();
 

@@ -9,6 +9,7 @@ namespace JuntosCodeChallenge.API.Services
     {
         public List<CustomerDTO> GetCustomer(string url)
         {
+            new LogHelper().Information($"Buscando e serializando os clientes JSON - URL:{url}.");
             return new APIHelper().GetStringAsync<CustomerJSONDTO>(url).Result.customers;
         }
     }

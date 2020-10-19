@@ -10,16 +10,12 @@
         "projectUniqueName": "D:\\Projetos\\JuntosCodeChallenge\\JuntosCodeChallenge\\JuntosCodeChallenge.API\\JuntosCodeChallenge.API.csproj",
         "projectName": "JuntosCodeChallenge.API",
         "projectPath": "D:\\Projetos\\JuntosCodeChallenge\\JuntosCodeChallenge\\JuntosCodeChallenge.API\\JuntosCodeChallenge.API.csproj",
-        "packagesPath": "C:\\Users\\rickc\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Rick\\.nuget\\packages\\",
         "outputPath": "D:\\Projetos\\JuntosCodeChallenge\\JuntosCodeChallenge\\JuntosCodeChallenge.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rickc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Rick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -66,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -76,16 +72,12 @@
         "projectUniqueName": "D:\\Projetos\\JuntosCodeChallenge\\JuntosCodeChallenge\\JuntosCodeChallenge.Domain\\JuntosCodeChallenge.Domain.csproj",
         "projectName": "JuntosCodeChallenge.Domain",
         "projectPath": "D:\\Projetos\\JuntosCodeChallenge\\JuntosCodeChallenge\\JuntosCodeChallenge.Domain\\JuntosCodeChallenge.Domain.csproj",
-        "packagesPath": "C:\\Users\\rickc\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Rick\\.nuget\\packages\\",
         "outputPath": "D:\\Projetos\\JuntosCodeChallenge\\JuntosCodeChallenge\\JuntosCodeChallenge.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rickc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Rick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -128,7 +120,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -138,16 +130,12 @@
         "projectUniqueName": "D:\\Projetos\\JuntosCodeChallenge\\JuntosCodeChallenge\\JuntosCodeChallenge.Infrastructure\\JuntosCodeChallenge.Infrastructure.csproj",
         "projectName": "JuntosCodeChallenge.Infrastructure",
         "projectPath": "D:\\Projetos\\JuntosCodeChallenge\\JuntosCodeChallenge\\JuntosCodeChallenge.Infrastructure\\JuntosCodeChallenge.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\rickc\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Rick\\.nuget\\packages\\",
         "outputPath": "D:\\Projetos\\JuntosCodeChallenge\\JuntosCodeChallenge\\JuntosCodeChallenge.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rickc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Rick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -185,6 +173,14 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "Serilog.Extensions.Logging.File": {
+              "target": "Package",
+              "version": "[2.0.0, )"
             }
           },
           "imports": [
@@ -198,11 +194,14 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

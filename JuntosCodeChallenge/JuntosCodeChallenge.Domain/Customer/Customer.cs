@@ -1,4 +1,5 @@
-﻿using JuntosCodeChallenge.Domain.Customer.DTO;
+﻿using JuntosCodeChallenge.Domain.Customer.CustomException;
+using JuntosCodeChallenge.Domain.Customer.DTO;
 using JuntosCodeChallenge.Domain.Customer.Enum;
 using JuntosCodeChallenge.Domain.Customer.VO;
 using System;
@@ -44,7 +45,7 @@ namespace JuntosCodeChallenge.Domain.Customer
                 error = "É necessário informar um tipo existente.";
 
             if (!string.IsNullOrEmpty(error))
-                throw new Exception(error);
+                throw new CustomerException(error);
         }
 
         public void InitializeRegions()

@@ -1,5 +1,6 @@
 using JuntosCodeChallenge.API;
 using JuntosCodeChallenge.Domain.Customer;
+using JuntosCodeChallenge.Domain.Customer.CustomException;
 using JuntosCodeChallenge.Domain.Customer.DTO;
 using JuntosCodeChallenge.Domain.Customer.Enum;
 using JuntosCodeChallenge.Domain.Customer.VO;
@@ -33,8 +34,8 @@ namespace JuntosCodeChallenge.Test
         public void LoadCustomerInvalid()
         {
             Customer customer = new Customer();
-            Assert.Throws<Exception>(() => customer.LoadCustomerIsValid(4, string.Empty));
-            Assert.Throws<Exception>(() => customer.LoadCustomerIsValid(2, string.Empty));
+            Assert.Throws<CustomerException>(() => customer.LoadCustomerIsValid(4, string.Empty));
+            Assert.Throws<CustomerException>(() => customer.LoadCustomerIsValid(2, string.Empty));
         }
         [Fact]
         public void SpecialCustomer()
@@ -447,7 +448,7 @@ namespace JuntosCodeChallenge.Test
         public void BadRequestCustomers()
         {
             CustomerResponseTest responseCustomer = null;
-            HttpResponseMessage responseMessage = _client.PostAsync("/api/customer/Filter", new StringContent(JsonSerializer.Serialize(string.Empty), Encoding.UTF8, "application/json")).Result;
+            HttpResponseMessage responseMessage = _client.PostAsync("/api/customer/Filter", new StringContent(JsonSerializer.Serialize(new FilterCustomerDTO()), Encoding.UTF8, "application/json")).Result;
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -465,20 +466,11 @@ namespace JuntosCodeChallenge.Test
         [Fact]
         public void IncorrectPageNumber()
         {
-            CustomerResponseTest responseCustomer = new CustomerResponseTest();
-            HttpResponseMessage responseMessage = _client.PostAsync("/api/customer/Filter", new StringContent(JsonSerializer.Serialize(new FilterCustomerDTO { Type = 1, PageSize = 10, PageNumber = 3 }), Encoding.UTF8, "application/json")).Result;
+            HttpResponseMessage responseMessage = new HttpResponseMessage();
+            void act() => responseMessage = _client.PostAsync("/api/customer/Filter", new StringContent(JsonSerializer.Serialize(new FilterCustomerDTO { Type = 1, PageSize = 10, PageNumber = 3 }), Encoding.UTF8, "application/json")).Result;
 
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                string response = responseMessage.Content.ReadAsStringAsync().Result;
-                responseCustomer = JsonSerializer.Deserialize<CustomerResponseTest>(response, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
-            }
-
-            Assert.NotEqual(HttpStatusCode.OK, responseMessage.StatusCode);
-            Assert.Equal(HttpStatusCode.BadRequest, responseMessage.StatusCode);
+            AggregateException exception = Assert.Throws<AggregateException>(act);
+            Assert.Equal("O total de páginas é inferior a página solicitada.", exception.InnerException.Message);
         }
     }
 }

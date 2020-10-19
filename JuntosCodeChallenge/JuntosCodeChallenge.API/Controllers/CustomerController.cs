@@ -1,23 +1,25 @@
 ﻿using JuntosCodeChallenge.Domain.Customer.DTO;
 using JuntosCodeChallenge.Domain.Customer.Interfaces;
+using JuntosCodeChallenge.Infrastructure.CrossCutting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System;
-using System.Collections.Generic;
 
 namespace JuntosCodeChallenge.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class CustomerController : _BaseController
     {
+        private readonly LogHelper logHelper;
         private readonly IMemoryCache _memoryCache;
         private readonly ICustomerRepository _customerRepository;
 
         public CustomerController(ICustomerRepository customerRepository, IMemoryCache memoryCache)
         {
-            _customerRepository = customerRepository;
             _memoryCache = memoryCache;
+            logHelper = new LogHelper();
+            _customerRepository = customerRepository;
         }
 
         [HttpGet]
@@ -29,9 +31,8 @@ namespace JuntosCodeChallenge.API.Controllers
             }
             catch (Exception e)
             {
-                //Inclui o erro no cache
-                _memoryCache.Set("Errors", new Dictionary<string, object>() { { "Erro ao obter todos os clientes", e } });
-                return BadRequest();
+                logHelper.Error(e, "Ocorreu um erro ao tentar obter todos os clientes já carregados.");
+                return VerifyException(e);
             }
         }
 
@@ -41,23 +42,17 @@ namespace JuntosCodeChallenge.API.Controllers
             try
             {
                 //Verifica se o objeto de filtro veio vazio
-                if (filterCustomerDTO == null)
-                    return BadRequest();
+                filterCustomerDTO.IsValid();
 
                 //Filtra de acordo com o que foi enviado
                 var customers = _customerRepository.Filter(filterCustomerDTO);
 
-                //Verifica se houve algum retorno
-                if (customers == null)
-                    return BadRequest();
-
                 return Ok(customers);
             }
-            catch (Exception e)
+            catch (SystemException e)
             {
-                //Inclui o erro no cache
-                _memoryCache.Set("Errors", new Dictionary<string, object>() { { "Erro ao filtrar os clientes", e } });
-                return BadRequest();
+                logHelper.Error(e, "Ocorreu um erro ao filtrar os clientes já.", filterCustomerDTO);
+                return VerifyException(e);
             }
         }
     }

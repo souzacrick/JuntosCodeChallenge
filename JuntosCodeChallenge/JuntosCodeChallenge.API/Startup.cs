@@ -1,5 +1,6 @@
 using JuntosCodeChallenge.API.Services;
 using JuntosCodeChallenge.Domain.Customer.Interfaces;
+using JuntosCodeChallenge.Infrastructure.CrossCutting;
 using JuntosCodeChallenge.Infrastructure.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,6 +8,8 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 
 namespace JuntosCodeChallenge.API
@@ -29,12 +32,17 @@ namespace JuntosCodeChallenge.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IMemoryCache memoryCache)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IMemoryCache memoryCache, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            LogHelper log = new LogHelper();
+
+            if (Convert.ToBoolean(Configuration[$"AppSettings:LoggingInFile"]))
+                log.InitializeFile(loggerFactory, Configuration[$"AppSettings:LogginFilePath"], Configuration[$"AppSettings:LogginFileExtension"]);
 
             try
             {
@@ -43,8 +51,7 @@ namespace JuntosCodeChallenge.API
             }
             catch (System.Exception e)
             {
-                //Inclui o erro no cache
-                memoryCache.Set("Errors", new Dictionary<string, object>() { { "Erro ao inicilizar", e } });
+                log.Error(e, "Erro ao carregar os clientes");
             }
 
             app.UseHttpsRedirection();
