@@ -27,6 +27,7 @@ namespace JuntosCodeChallenge.API.Controllers
         {
             try
             {
+                logHelper.Information("Obtendo todos os clientes.");
                 return Ok(new ResponseCustomerDTO { users = _customerRepository.GetAll() });
             }
             catch (Exception e)
@@ -41,6 +42,7 @@ namespace JuntosCodeChallenge.API.Controllers
         {
             try
             {
+                logHelper.Information("Verificando se os filtros são válidos.");
                 //Verifica se o objeto de filtro veio vazio
                 filterCustomerDTO.IsValid();
 

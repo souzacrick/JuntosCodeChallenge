@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuntosCodeChallenge.Domain"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuntosCodeChallenge.Infrastructure", "JuntosCodeChallenge.Infrastructure\JuntosCodeChallenge.Infrastructure.csproj", "{00392D0D-9444-4588-AF11-7E0F99912988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuntosCodeChallenge.Test", "JuntosCodeChallenge.Test\JuntosCodeChallenge.Test.csproj", "{611D5A65-6339-4564-858F-B8904CCB1D83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuntosCodeChallenge.Test", "JuntosCodeChallenge.Test\JuntosCodeChallenge.Test.csproj", "{611D5A65-6339-4564-858F-B8904CCB1D83}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{992CA3FF-5DEF-4D9E-AF60-DF03DC1E1F1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{611D5A65-6339-4564-858F-B8904CCB1D83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{611D5A65-6339-4564-858F-B8904CCB1D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{611D5A65-6339-4564-858F-B8904CCB1D83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{992CA3FF-5DEF-4D9E-AF60-DF03DC1E1F1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{992CA3FF-5DEF-4D9E-AF60-DF03DC1E1F1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{992CA3FF-5DEF-4D9E-AF60-DF03DC1E1F1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{992CA3FF-5DEF-4D9E-AF60-DF03DC1E1F1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

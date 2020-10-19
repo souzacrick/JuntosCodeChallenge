@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  juntoscodechallenge.api:
+    image: ${DOCKER_REGISTRY-}juntoscodechallengeapi
+    build:
+      context: .
+      dockerfile: JuntosCodeChallenge.API/Dockerfile
