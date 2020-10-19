@@ -16,3 +16,6 @@
 /JuntosCodeChallenge/JuntosCodeChallenge.Infrastructure/obj/project.nuget.cache
 /JuntosCodeChallenge/JuntosCodeChallenge.Domain/obj/project.nuget.cache
 /JuntosCodeChallenge/JuntosCodeChallenge.API/Logs
+/JuntosCodeChallenge/JuntosCodeChallenge.Domain/obj
+/JuntosCodeChallenge/JuntosCodeChallenge.Infrastructure/obj
+/JuntosCodeChallenge/JuntosCodeChallenge.Test/obj
