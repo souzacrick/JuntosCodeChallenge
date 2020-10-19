@@ -75,7 +75,11 @@ Em caso de não envio do pageNumber e pageSize, será atribuido de forma automá
 
 ### Configurações do projeto ###
 
-Caso deseje alterar a nacionalidade padrão e/ou os valores do bounding box para definir o tipo de cliente eles estão no appsettings.json.
+Caso deseje alterar a nacionalidade padrão e/ou os valores do bounding box para definir o tipo de cliente e/ou se deve ou não logar em arquivo eles estão no appsettings.json.
+
+### Log do projeto ###
+
+Todo o processo (obteção dos clientes e consultas) ou erro é exibido na console do docker, mas também existe a possibilidade de gravar em arquivo, foi criada uma váriavel (LoggingInFile) no appsettings.json
 
 ### Testes do projeto ###
 
